@@ -1,0 +1,35 @@
+.sign-form{
+    padding: 2em;
+    margin-top: 20px;
+    /* background-color: #F5B700; */
+    background-color: white;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+    color: lightgrey;
+}
+
+.sign-form:hover{
+    opacity: 1;
+}
+
+.sign-form input{
+    width: 100%;
+    background: #f2f2f2;
+    padding: 15px;
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.sign-form button{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: rgb(54, 77, 177);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+}

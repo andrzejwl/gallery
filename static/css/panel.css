@@ -1,0 +1,106 @@
+body{
+    font-family: 'Exo 2', sans-serif;
+    color: white;
+}
+
+.col-md{
+    background-color: lightgrey;
+    padding: 10px;  
+}
+
+.form-header{
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.upload button{
+    text-transform: uppercase;
+    outline: 0;
+    background: rgb(54, 77, 177);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.upload input[type=text]{
+    width: 100%;
+    background: #f2f2f2;
+    padding: 15px;
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    color: rgb(54, 77, 177);
+    font-family: 'Exo 2', sans-serif;
+}
+.upload textarea{
+    width: 100%;
+    color: rgb(54, 77, 177);
+    padding: 5px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.upload form{
+    opacity: 0.5;
+    transition: opacity 0.5s;
+    margin-bottom: 2em;
+    height: 100%;
+    padding: 20px;
+}
+
+.upload form:hover{
+    opacity: 1;
+}
+
+.upload label{
+    display: block;
+    position: relative;
+}
+
+.upload select{
+    margin-bottom: 20px;
+    width: 100%;
+    padding:3px;
+    text-align: center;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+
+.file-input{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.file-label{
+    padding: 10px;
+    background-color:rgb(54, 77, 177);
+    width: 40%;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+.file-label span{
+    float: left;
+}
+
+.file-label:focus{
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}

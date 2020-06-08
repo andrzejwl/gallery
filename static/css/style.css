@@ -1,0 +1,15 @@
+html, body{
+    height: 100%;
+    margin: 0;
+}
+body{
+    background: rgb(81,83,98);
+    background: linear-gradient(90deg, rgba(81,83,98,0.6432773793110995) 0%, rgba(181,163,176,0.7525210767900911) 100%);
+}
+
+.container{
+    height: 100%;
+    width: 100% !important;
+    width: 100vw !important;
+    margin: 0 !important;
+}
