@@ -13,6 +13,11 @@ body{
     font-size: 2em;
 }
 
+.upload{
+    width: 50%;
+    margin: auto;
+}
+
 .upload button{
     text-transform: uppercase;
     outline: 0;
@@ -103,4 +108,13 @@ body{
 .file-label:focus{
     outline: 1px dotted #000;
     outline: -webkit-focus-ring-color auto 5px;
+}
+
+.toggled{
+    display: none;
+}
+
+#form-toggler{
+    padding: 10px;
+    cursor: pointer;
 }

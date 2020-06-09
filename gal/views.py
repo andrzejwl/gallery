@@ -96,3 +96,19 @@ def create_category(request):
         new_cat.save()
     
     return redirect('panel')
+
+
+@login_required
+def all_images(request):
+    upload_form = ImageForm()
+    images = Image.objects.filter(owner=request.user)
+
+    return render(request, 'gal/all_images.html', {'images': images, 'upload_form': upload_form})
+
+
+@login_required
+def all_categories(request):
+    category_form = CategoryForm()
+    categories = Category.objects.filter(owner=request.user)
+
+    return render(request, 'gal/all_categories.html', {'categories': categories, 'category_form': category_form})

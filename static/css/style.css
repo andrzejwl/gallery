@@ -9,7 +9,4 @@ body{
 
 .container{
     height: 100%;
-    width: 100% !important;
-    width: 100vw !important;
-    margin: 0 !important;
 }

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} All Categories {% endblock %}
+{% block includes %}
+<link rel='stylesheet' href="{% static 'css/panel.css'%}">
+<link rel='stylesheet' href="{% static 'css/sidebar.css'%}">
+<script src="{% static 'js/hide_form.js'%}"></script>
+{% endblock %}
+{% block content %}
+<div class="row">
+    
+    <div class="col-md-1">
+        {% include 'gal/sidebar.html' %}
+    </div>
+    
+    <div class="col-md-11">
+        <h1>Your Personal Gallery</h1>
+    
+        <div class="toggle-form">
+            <span class="material-icons" id="form-toggler">add</span>
+        </div>
+        
+        <div class="upload toggled">
+                    <div class="form-header">Create a new category.</div>
+                    <form method="POST" action="{% url 'create_category' %}" >
+                        {% csrf_token %}
+                        {{ category_form }}
+                        <button type="submit">Add category</button>
+                    </form>
+        </div>
+        
+        <hr>
+        <div class="categories">
+
+            <h>Your categories:</h>
+            <div class="cat-menu">
+            {% for category in categories %}
+                <div class="category">{{ category.name }}</div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

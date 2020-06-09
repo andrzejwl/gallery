@@ -9,5 +9,7 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     path('upload', views.upload, name='upload'),
     path('create_category', views.create_category, name='create_category'),
+    path('all_photos', views.all_images, name='all_images'),
+    path('all_categories', views.all_categories, name='all_categories'),
 ]
 

@@ -1,0 +1,13 @@
+.images{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.image-container{
+    margin-left: 10px;
+    margin-right: 10px;
+    
+    height: 100%;
+}
