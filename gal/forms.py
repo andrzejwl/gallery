@@ -25,3 +25,7 @@ class ImageForm(forms.Form):
 
 class CategoryForm(forms.Form):
     name = forms.CharField()
+
+class SettingsForm(forms.Form):
+    new_width = forms.IntegerField(min_value=100, max_value=500)
+    new_height = forms.IntegerField(min_value=100, max_value=500)

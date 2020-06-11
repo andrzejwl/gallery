@@ -8,7 +8,7 @@
             <a href="{% url 'all_categories' %}" class="nav-link">Categories</a>
         </li>
         <li>
-            <a href="#pageSubmenu" class="nav-link">Settings</a>
+            <a href="{% url 'settings' %}" class="nav-link">Settings</a>
         </li>
         <li>
             <form method="POST" id="logout-form" action="{% url 'logout' %}">

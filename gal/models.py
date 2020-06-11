@@ -18,3 +18,8 @@ class Image(models.Model):
     description = models.TextField(null=True)
     upload_date = models.DateField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+
+class Settings(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    display_width = models.IntegerField()
+    display_height = models.IntegerField()

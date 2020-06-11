@@ -4,6 +4,7 @@
 {% block includes %}
 <link rel='stylesheet' href="{% static 'css/panel.css'%}">
 <link rel='stylesheet' href="{% static 'css/sidebar.css'%}">
+<link rel='stylesheet' href="{% static 'css/categories.css'%}">
 <script src="{% static 'js/hide_form.js'%}"></script>
 {% endblock %}
 {% block content %}
@@ -30,12 +31,42 @@
         </div>
         
         <hr>
-        <div class="categories">
+        {% if msg != '' %}
+        <div class="alert alert-info" role="alert">
+            {{msg}}
+        </div>
+        {% endif %}
 
+        <div class="categories">
             <h>Your categories:</h>
             <div class="cat-menu">
             {% for category in categories %}
-                <div class="category">{{ category.name }}</div>
+                <div class="category">
+                    <div class="name">{{ category.name }}</div>
+                    <div class="icons">
+                        <a href="{% url 'category' %}?id={{category.id}}">
+                            <div class="icon-all" title="See photos from this category">
+                                <span class="material-icons">insert_photo </span>
+                            </div>
+                        </a>
+
+                        <a href="/edit-category/{{category.id}}">
+                            <div class="icon-all" title="Edit">    
+                                <span class="material-icons">create</span>
+                            </div>
+                        </a>
+                        
+                        <form method="POST" action="{% url 'delete_category' %}" id="del-form{{category.id}}">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{category.id}}" name="cat_id">
+                            <a href="javascript:$('#del-form{{category.id}}').submit();">
+                                <div class="icon-all" title="Delete this category">
+                                    <span class="material-icons">delete </span>
+                                </div>
+                            </a>
+                        </form>
+                    </div>
+                </div>
             {% endfor %}
             </div>
         </div>

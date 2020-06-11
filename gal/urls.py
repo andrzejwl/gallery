@@ -11,5 +11,8 @@ urlpatterns = [
     path('create_category', views.create_category, name='create_category'),
     path('all_photos', views.all_images, name='all_images'),
     path('all_categories', views.all_categories, name='all_categories'),
+    path('settings', views.settings, name='settings'),
+    path('delete_category', views.delete_category, name='delete_category'),
+    path('category', views.category, name='category'),
 ]
 

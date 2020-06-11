@@ -1,0 +1,40 @@
+.cat-menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.category{
+    width: 400px;
+    height: 150px;
+    text-align: center;
+    font-size: 50px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 5px solid white;
+}
+
+
+.material-icons{
+    margin: 15px;
+}
+
+.icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 50px;
+}
+
+.material-icons{
+    color: white;
+}
+.material-icons:hover{
+    color: black;
+}
+.alert{
+    width: 50%;
+    margin: auto;
+}

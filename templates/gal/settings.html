@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Settings{% endblock %}
+{% block includes %}
+<link rel='stylesheet' href="{% static 'css/panel.css'%}">
+<link rel='stylesheet' href="{% static 'css/sidebar.css'%}">
+<link rel='stylesheet' href="{% static 'css/settings.css'%}">
+{% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-1">
+        {% include 'gal/sidebar.html' %}
+    </div>
+    <div class="col-md-11">
+        <h1>Your Personal Gallery</h1>
+        <hr>
+        <div class="info">
+            Set image preview size as you want (100-500px.)
+        </div>
+        <div class="settings-form">
+            {% if msg != ''%}
+            <div class="alert alert-{{alert_type}}" role="alert">
+                {{msg}}
+            </div>
+            {% endif %}
+            <form method="POST" action="{% url 'settings' %}">
+                {% csrf_token %}
+                {{ form }}
+                <button>Save changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

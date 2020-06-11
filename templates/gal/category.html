@@ -19,32 +19,8 @@
     </div>
     <div class="col-md-11">
         <h1>Your Personal Gallery</h1>
-
-        <div class="toggle-form">
-            <span class="material-icons" id="form-toggler">add</span>
-        </div>
-
-        <div class="upload toggled">
-            <div class="row">
-                <div class="col-md mr-2">
-                    <div class="form-header">Upload a photo.</div>
-                    <form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <label for='id_image' class='file-label'> <span class="material-icons">backup</span> Choose an image</label>
-                        {{ upload_form.image }}
-                        <label for='id_description'>Description:</label>
-                        {{ upload_form.description }}
-                        <label for='id_image'>Category:</label>
-                        {{ upload_form.category }}
-                        <button type="submit">Upload image</button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-        
+        <h2>{{category.name}}</h2>
         <hr>
-        <p>The images you have uploaded:</p>
         <div class="images">
             {% for image in images %}
             <div class="image-container">
