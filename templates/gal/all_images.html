@@ -7,6 +7,9 @@
 <link rel='stylesheet' href="{% static 'css/all_images.css'%}">
 <script src="{% static 'js/hide_form.js'%}"></script>
 <script src="{% static 'js/rescale_images.js'%}"></script>
+<script src="{% static 'js/zoom_img.js'%}"></script>
+<script src="{% static 'js/toggle_edit.js'%}"></script>
+
 {% endblock %}
 {% block content %}
 <script>
@@ -28,10 +31,10 @@
             <div class="row">
                 <div class="col-md mr-2">
                     <div class="form-header">Upload a photo.</div>
-                    <form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
+                    <form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data" class="dropzone">
                         {% csrf_token %}
                         <label for='id_image' class='file-label'> <span class="material-icons">backup</span> Choose an image</label>
-                        {{ upload_form.image }}
+                        {{upload_form.image}}
                         <label for='id_description'>Description:</label>
                         {{ upload_form.description }}
                         <label for='id_image'>Category:</label>
@@ -51,7 +54,20 @@
                 <div class="image">
                     <img src="{{image.image.url}}">
                 </div>
-                <div class="desc">{{image.description}}</div>
+                <div class="desc">
+                    <div class="desc-text" id="desc-text{{image.id}}">{{image.description}}</div>
+                    <div class="icons">
+                        <span class="material-icons" onclick='toggleEdit({{image.id}},"{% url "update_image" %}")'>create</span>
+                        <form method="POST" action="{% url 'delete_image' %}" id="delete{{image.id}}">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{image.id}}" name="image_id"> 
+                            <a href="javascript:$('#delete{{image.id}}').submit();">
+                                <span class="material-icons">delete</span>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+                
             </div>
             {% endfor %}
         </div>

@@ -8,13 +8,14 @@ from django.contrib.auth import logout as dj_logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
 from .forms import RegisterForm, ImageForm, CategoryForm, SettingsForm
 from .models import Image, Category, Settings
 from datetime import datetime
 
 def index(request):
     if request.user.is_authenticated:
-        return redirect('panel')
+        return redirect('all_images')
     message = request.session.get("message", None)
     if message is not None: request.session.pop("message")
 
@@ -88,7 +89,7 @@ def upload(request):
 
         image.save()
 
-    return redirect('panel')
+    return redirect('all_images')
 
 @require_POST
 @login_required
@@ -200,3 +201,32 @@ def category(request):
             settings = Settings.objects.filter(user=request.user)[0]
 
             return render(request, 'gal/category.html', {'category': category, 'images': images, 'display_width': settings.display_width, 'display_height': settings.display_height})
+        
+@csrf_exempt
+@require_POST
+@login_required
+def update_image(request):
+    
+    image_id = request.POST["image_id"]
+    new_desc = request.POST["new_desc"]
+    match = Image.objects.filter(owner=request.user, id=image_id)
+    
+    if len(match):
+        image = match[0]
+        image.description = new_desc
+        image.save()
+
+    return redirect('all_images')
+
+@require_POST
+@login_required
+def delete_image(request):
+    
+    image_id = request.POST["image_id"]
+    match = Image.objects.filter(owner=request.user, id=image_id)
+    
+    if len(match):
+        image = match[0]
+        image.delete()
+
+    return redirect('all_images')

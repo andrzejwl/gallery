@@ -18,6 +18,10 @@ body{
     margin: auto;
 }
 
+img{
+    cursor: zoom-in;
+}
+
 .upload button{
     text-transform: uppercase;
     outline: 0;
