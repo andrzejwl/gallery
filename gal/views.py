@@ -52,7 +52,7 @@ def login(request):
     if user is not None:
         dj_login(request, user)
         request.session["username"] = username
-        return redirect('panel')
+        return redirect('all_images')
     else:
         request.session["message"] = "Incorrect user data."
         return redirect('index')
