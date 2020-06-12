@@ -13,6 +13,8 @@ $(window).on("load", function() {
             cursor: 'zoom-out'
         }).click(function(){
             removeModal();
+        }).bind('contextmenu', function(e) {
+            return false;
         }).appendTo('body');
         //handling ESC
         $('body').on('keyup.modal-close', function(e){
