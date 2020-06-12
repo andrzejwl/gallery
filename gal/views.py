@@ -63,15 +63,6 @@ def logout(request):
     dj_logout(request)
     return redirect('index')
 
-@login_required
-def panel(request):
-    upload_form = ImageForm(initial={'owner': request.user})
-    cat_form = CategoryForm()
-    images = Image.objects.filter(owner=request.user)
-    categories = Category.objects.filter(owner=request.user)
-    
-    return render(request, 'gal/panel.html', {'upload_form': upload_form, 'category_form': cat_form, 'images': images, 'categories': categories})
-
 @require_POST
 @login_required
 def upload(request):
