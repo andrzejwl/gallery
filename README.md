@@ -11,9 +11,11 @@ W portalu są 3 podstawowe zakładki (i pole do wylogowywania się):
     Można tu dodawać zdjęcia, dokonywać edycji opisów zdjęć, jak i zdjęcia usuwać.
 
 - ```categories ```
+    
     Można tu edytować nazwy kategorii oraz je usuwać. Po kliknięciu w ikonkę obrazku zostajemy przenoszeni do widoku wszystkich zdjęć z danej kategorii.
 
 - ```settings```
+    
     Tu można dokonać zmiany rozmiaru miniaturek wyświetlanych w poprzednich zakładkach.
 
 ## Uwagi
